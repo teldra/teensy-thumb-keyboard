@@ -4,6 +4,7 @@
 #include <Arduino.h>
 #include "LayoutCommon.h"
 
+
 #define NUM_ROWS 6
 #define NUM_COLS 10
 
@@ -94,7 +95,7 @@ const char ascii_key_matrix[3][NUM_ROWS][NUM_COLS] =
    // Fn Layer
    {
     {ASCII_MOUSE_LEFT,     ASCII_MOUSE_UP, ASCII_MOUSE_DOWN, ASCII_MOUSE_RIGHT,      0, 0,                    ASCII_MOUSE_BTN2, ASCII_MOUSE_BTN3, 0,    96},
-    {ASCII_MOUSE_WHEEL_UP, 0,              0,                ASCII_MOUSE_WHEEL_DOWN, 0, ASCII_MOUSE_BTN1,     0,                0,                0,    126},
+    {ASCII_MOUSE_WHEEL_DOWN, 0,              0,                ASCII_MOUSE_WHEEL_UP, 0, ASCII_MOUSE_BTN1,     0,                0,                0,    126},
     {0,                    0,              0,                0,                      0, 0,                    '{',              '}',              '\\', '|'},
     {0,                    0,              0,                0,                      0, '[',                  ']',              '(',              ')',  0},
     {0,                    0,              0,                0,                      0, 0,                    0,                0,                0,    0},
@@ -106,15 +107,36 @@ const char ascii_key_matrix[3][NUM_ROWS][NUM_COLS] =
 // for all keycodes see:
 // ~/apps/arduino-1.8.5/hardware/teensy/avr/cores/teensy3/keylayouts.h
 // https://www.pjrc.com/teensy/td_keyboard.html
-const uint16_t usb_key_matrix[NUM_ROWS][NUM_COLS] =
+// const uint16_t usb_key_matrix[NUM_ROWS][NUM_COLS] =
+//   // Base Layer
+//   {
+//    {KEY_LEFT,          KEY_UP,           KEY_DOWN,        KEY_RIGHT,       KEY_0,     KEY_SLASH, KEY_MINUS, KEY_EQUAL, KEY_SEMICOLON,     KEY_QUOTE},
+//    {KEY_7,             KEY_8,            KEY_9,           KEY_4,           KEY_5,     KEY_6,     KEY_1,     KEY_2,     KEY_3,             KEY_ESC},
+//    {KEY_Q,             KEY_W,            KEY_E,           KEY_R,           KEY_T,     KEY_Y,     KEY_U,     KEY_I,     KEY_O,             KEY_P},
+//    {KEY_A,             KEY_S,            KEY_D,           KEY_F,           KEY_G,     KEY_H,     KEY_J,     KEY_K,     KEY_L,             ASCII_FN},
+//    {MODIFIERKEY_SHIFT, KEY_Z,            KEY_X,           KEY_C,           KEY_V,     KEY_B,     KEY_N,     KEY_M,     MODIFIERKEY_SHIFT, KEY_BACKSPACE},
+//    {KEY_TAB,           MODIFIERKEY_CTRL, MODIFIERKEY_GUI, MODIFIERKEY_ALT, KEY_SPACE, KEY_SPACE, ASCII_FN,  KEY_COMMA, KEY_PERIOD,        KEY_ENTER},
+//   };
+const uint16_t usb_key_matrix[2][NUM_ROWS][NUM_COLS] =
+  {
+   // Base Layer
   // Base Layer
   {
-   {KEY_LEFT,          KEY_UP,           KEY_DOWN,        KEY_RIGHT,       KEY_0,     KEY_SLASH, KEY_MINUS, KEY_EQUAL, KEY_SEMICOLON,     KEY_QUOTE},
+   {KEY_LEFT,          KEY_UP,           KEY_DOWN,        KEY_RIGHT,       KEY_0,     '/', '-', '=', ';',     '\''},
    {KEY_7,             KEY_8,            KEY_9,           KEY_4,           KEY_5,     KEY_6,     KEY_1,     KEY_2,     KEY_3,             KEY_ESC},
-   {KEY_Q,             KEY_W,            KEY_E,           KEY_R,           KEY_T,     KEY_Y,     KEY_U,     KEY_I,     KEY_O,             KEY_P},
+   {KEY_Q,             KEY_W,            KEY_E,           KEY_R,           KEY_T,     KEY_Z,     KEY_U,     KEY_I,     KEY_O,             KEY_P},
    {KEY_A,             KEY_S,            KEY_D,           KEY_F,           KEY_G,     KEY_H,     KEY_J,     KEY_K,     KEY_L,             ASCII_FN},
-   {MODIFIERKEY_SHIFT, KEY_Z,            KEY_X,           KEY_C,           KEY_V,     KEY_B,     KEY_N,     KEY_M,     MODIFIERKEY_SHIFT, KEY_BACKSPACE},
+   {MODIFIERKEY_SHIFT, KEY_Y,            KEY_X,           KEY_C,           KEY_V,     KEY_B,     KEY_N,     KEY_M,     MODIFIERKEY_SHIFT, KEY_BACKSPACE},
    {KEY_TAB,           MODIFIERKEY_CTRL, MODIFIERKEY_GUI, MODIFIERKEY_ALT, KEY_SPACE, KEY_SPACE, ASCII_FN,  KEY_COMMA, KEY_PERIOD,        KEY_ENTER},
+  },
+   // Shift Layer
+   {
+    {0,   0,   0,   0,   ')', '?', '_', '+', ':',  '"'},
+    {'&', '*', '(', '$', '%', '^', '!', '@', '#',  0},
+    {'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O',  'P'},
+    {'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L',  0},
+    {0,   'Z', 'X', 'C', 'V', 'B', 'N', 'M', 0,    0},
+    {0,   0,   0,   0,   0,   0,   0,   '<', '>',  0},
+   },
   };
-
 #endif

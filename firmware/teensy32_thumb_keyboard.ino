@@ -396,7 +396,8 @@ void keyboard_update() {
           // TODO: else other keys like mouse buttons?
         }
         else
-          Keyboard.press(usb_key_matrix[pkey->row][pkey->col]);
+          //Keyboard.press(usb_key_matrix[pkey->row][pkey->col]);
+          Keyboard.press(usb_key_matrix[keyboard_state.current_layer][pkey->row][pkey->col]);
 #endif
 
 #ifdef ENABLE_ONESHOT_SHIFT_FN
@@ -454,7 +455,9 @@ void keyboard_update() {
 #endif
 
 #ifdef USE_TEENSY_USB_KEYBOARD
-      Keyboard.release(usb_key_matrix[rkey->row][rkey->col]);
+      //Keyboard.release(usb_key_matrix[rkey->row][rkey->col]);
+      Keyboard.release(usb_key_matrix[keyboard_state.current_layer][rkey->row][rkey->col]);
+      //Keyboard.releaseAll();
 #endif
     }
 
